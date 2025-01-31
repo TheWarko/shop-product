@@ -4,7 +4,7 @@ const StyledIcon = styled.span`
   color: #ffc107;
 `;
 
-const StyledRating = styled.span`
+const StyledRating = styled.p`
   color: ${({ theme }) => theme.colors.text.secondary};
   vertical-align: middle;
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CartIcon from "../../assets/icons/bag-2.svg?react";
+import BagIcon from "../../assets/icons/bag-2";
 
 const StyledFlex = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ const StyledTitle = styled.h1`
   font-size: 24px;
 `;
 
-const StyledCartIcon = styled(CartIcon)`
+const StyledCartIconWrapper = styled.div`
   cursor: pointer;
 `;
 
@@ -20,7 +20,9 @@ const Header = () => {
   return (
     <StyledFlex>
       <StyledTitle>Products</StyledTitle>
-      <StyledCartIcon />
+      <StyledCartIconWrapper>
+        <BagIcon />
+      </StyledCartIconWrapper>
     </StyledFlex>
   );
 };

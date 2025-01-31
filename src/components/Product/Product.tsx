@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { screens } from "../../assets/styles/screens";
 
 interface ProductProps {
+  selected?: boolean;
   product: {
     title: string;
     rating: {
@@ -44,8 +45,16 @@ const StyledTitle = styled.h3`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
   @media ${screens.large} {
     white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: calc(3 * 1.5em);
+    line-height: 1.5em;
   }
 `;
 
@@ -64,17 +73,23 @@ const StyledButton = styled(Button)`
   right: 16px;
 `;
 
-const Product: React.FC<ProductProps> = ({ product, ...props }) => {
+const Product: React.FC<ProductProps> = ({ selected, product, ...props }) => {
   return (
-    <StyledCard {...props}>
+    <StyledCard selected={selected} {...props}>
       <StyledImageWrapper>
         <img src={product.image} alt={product.title} />
       </StyledImageWrapper>
       <StyledFlex>
         <StyledTitle>{product.title}</StyledTitle>
-        <StyledRating rate={8} />
+        <StyledRating rate={product.rating.rate} />
       </StyledFlex>
-      <StyledPrice>${product.price}</StyledPrice>
+      <StyledPrice>
+        $
+        {product.price.toLocaleString("it-IT", {
+          maximumFractionDigits: 2,
+          minimumFractionDigits: 2,
+        })}
+      </StyledPrice>
 
       <StyledButton>+</StyledButton>
     </StyledCard>
