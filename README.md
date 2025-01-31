@@ -6,7 +6,7 @@ Welcome to **Shop Product**, a shopping platform designed to offer you a unique 
 
 ## 🌐 Demo
 
-Here is the [demo link](https://shop-product.netlify.app/) on Netlify.
+Here is the [demo link](https://shop-product-demo.netlify.app/) on Netlify.
 
 ---
 
